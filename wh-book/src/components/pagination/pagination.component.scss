@@ -1,0 +1,24 @@
+.pagination {
+	display: flex;
+	margin: 0 auto;
+	width: 82px;
+	padding: 24px 0px;
+	justify-content: space-around;
+	align-items: center;
+}
+.pagination-dot {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 28px;
+	width: 28px;
+	border-radius: 50%;
+	cursor: pointer;
+	&:not(.selected):hover {
+		background-color: #F2F2F2;
+	}
+}
+.selected {
+	background-color: #8F07CF;
+	color: #FFFFFF;
+}

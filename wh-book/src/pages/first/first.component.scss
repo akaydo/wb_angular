@@ -1,0 +1,39 @@
+.page {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+  }
+  
+  .page-img {
+    width: 238px;
+    height: 216px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+  }
+  
+  .block-500 {
+    width: 500px;
+  }
+
+  p {
+    margin-top: 0;
+  }
+  
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-top: 0;
+  }
+  
+  h2 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  
+ 
