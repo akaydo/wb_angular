@@ -1,25 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
 @font-face {
     font-family: "Segoe UI";
     font-weight: normal;
-    src: url("./assets/fonts/SegoeUI.ttf");
+    src: url("/src/assets/fonts/SegoeUI.ttf");
   }
   
   @font-face {
     font-family: "Segoe UI";
     font-weight: bold;
-    src: url("./assets/fonts/SegoeUI-Bold.ttf");
+    src: url("/src/assets/fonts/SegoeUI-Bold.ttf");
   }
   
   @font-face {
     font-family: "Segoe UI";
     font-weight: 600;
-    src: url("./assets/fonts/SegoeUI-SemiBold.ttf");
+    src: url("/src/assets/fonts/SegoeUI-SemiBold.ttf");
   }
 
-  /* --------------------------- */
-
-  body {
+body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
@@ -29,4 +26,3 @@
     font-size: 14px;
     line-height: 20px;
   }
-  
