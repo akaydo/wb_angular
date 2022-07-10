@@ -1,0 +1,9 @@
+<section class="pagination">
+  <ul class="pagination__list"> 
+    <li *ngFor="let pageNum of pagesList">
+      <a routerLink={{pageNum}} class="pagination__dot" routerLinkActive="selected">
+        {{pageNum}}
+      </a>
+    </li>
+  </ul>
+</section>

@@ -16,13 +16,21 @@
     src: url("/src/assets/fonts/SegoeUI-SemiBold.ttf");
   }
 
-body {
-    height: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    font-family: 'Segoe UI', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+* {
+    list-style: none;
+    text-transform: none;
+    text-decoration: none;
+    body {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
+
+
+

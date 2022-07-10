@@ -1,0 +1,28 @@
+.pagination {
+	&__list {
+		display: flex;
+		margin: 0 auto;
+		padding: 0 40px 40px;
+		justify-content: center;
+		align-items: center;
+	}
+	&__dot {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 28px;
+		width: 28px;
+		border-radius: 50%;
+		cursor: pointer;
+		&.selected {
+			background-color: #8F07CF;
+			color: #FFFFFF;
+		}
+		&:not(.selected) {
+			color: #000000;
+		}
+		&:not(.selected):hover {
+			background-color: #F2F2F2;
+		}
+	}
+}
