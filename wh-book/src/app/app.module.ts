@@ -6,7 +6,9 @@ import { BookModule } from './book/book.module';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorPageComponent } from './errorpage/errorpage.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTableComponent } from './table/data-table/data-table.component';
+import { TableModule } from './table/table.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ErrorPageComponent } from './errorpage/errorpage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BookModule
+    BookModule,
+    BrowserAnimationsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
