@@ -9,7 +9,14 @@ export interface PeriodicElement {
   name: string;
   weight: number;
   symbol: string;
-  extendedData?: any[];
+  extendedData?: PeriodicElementExtend[];
+}
+
+export interface PeriodicElementExtend {
+  position: number;
+  name: string;
+  weight: number;
+  displayedInCell: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -75,7 +82,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   },
 ];
 
-let extendedData = [
+const extendedData = [
   {position: 24, name: 'ElementName', weight: 881.9950604495106, displayedInCell: 'Is not gas'},
   {position: 18, name: 'ElementName', weight: 797.1882834817152, displayedInCell: 'Is not gas'},
   {position: 81, name: 'ElementName', weight: 83.27795127138148, displayedInCell: 'Is not gas'},
@@ -103,16 +110,17 @@ let extendedData = [
 
 export class DataTableComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<PeriodicElement>;
+  dataSource2 = new MatTableDataSource<PeriodicElementExtend>;
   columnsToDisplay = ['position','name', 'weight', 'symbol'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: PeriodicElement | null | undefined;
+  expandedElement!: PeriodicElement | null;
   displayedExtendedColumns: string[] = ['position', 'name', 'weight', 'displayedInCell'];
   constructor(private _liveAnnouncer: LiveAnnouncer) {
     ELEMENT_DATA.forEach(el => {
       el.extendedData = extendedData
     })
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-    
+    this.dataSource2 = new MatTableDataSource(extendedData)
   }
 
   @ViewChild(MatSort) sort: MatSort;
