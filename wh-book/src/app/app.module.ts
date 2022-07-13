@@ -11,6 +11,8 @@ import { DataTableComponent } from './table/data-table/data-table.component';
 import { TableModule } from './table/table.module';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -27,7 +29,10 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     BookModule,
     BrowserAnimationsModule,
-    TableModule
+    TableModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

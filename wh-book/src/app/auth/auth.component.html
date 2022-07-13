@@ -1,17 +1,21 @@
 <section class="auth">
     <div class="auth-wrapper">
-        <form class="auth-form">
+        <form [formGroup]="authForm" class="auth-form" (ngSubmit)="onSubmit()">
             <h1>Sign In</h1>
             <p>Don't have an Account? <a class="auth-form__link" routerLink="/register">Sign Up</a></p>
             <div class="auth-form__group">
                 <label class="auth-form__label" for="email">Email</label>
-                <input class="auth-form__input" type="text" id="email">
+                <input class="auth-form__input" formControlName="email" type="email" id="email" required>
+                <mat-error *ngIf="authForm.get('email')?.hasError('required') && authForm.get('email')?.touched"> Email
+                    is required </mat-error>
+                <mat-error *ngIf="authForm.get('email')?.hasError('email') && authForm.get('email')?.touched"> Invalid email </mat-error>
             </div>
             <div class="auth-form__group">
                 <label class="auth-form__label" for="password">Password</label>
-                <input class="auth-form__input"type="password" id="password">
+                <input class="auth-form__input" formControlName="password" type="password" id="password" required>
+                <mat-error *ngIf="authForm.get('password')?.hasError('required') && authForm.get('password')?.touched"> Password is required</mat-error>
             </div>
-            <button class="auth-form__button">Sign In</button>
+            <button type="submit" [disabled]="!authForm.valid" class="auth-form__button">Sign In</button>
         </form>
     </div>
 </section>
