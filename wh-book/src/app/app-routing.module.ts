@@ -5,6 +5,8 @@ import { routes as bookRoutes } from './book/book-routing.module';
 import { ContentComponent } from './components/content/content.component';
 import { routes as tableRoutes } from './table/table-routing.module';
 import { DataTableComponent } from './table/data-table/data-table.component';
+import { AuthComponent } from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/book/1', pathMatch: 'full' },
@@ -16,7 +18,10 @@ const routes: Routes = [
   { path: 'table',
     children: tableRoutes,
     component: DataTableComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: 'register', component: RegisterComponent},
   { path: '**', component: ErrorPageComponent },
+  
   
 ];
 

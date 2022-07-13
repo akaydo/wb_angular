@@ -9,6 +9,8 @@ import { ErrorPageComponent } from './errorpage/errorpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableComponent } from './table/data-table/data-table.component';
 import { TableModule } from './table/table.module';
+import { AuthComponent } from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { TableModule } from './table/table.module';
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
