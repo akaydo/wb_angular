@@ -7,6 +7,7 @@ import { routes as tableRoutes } from './table/table-routing.module';
 import { DataTableComponent } from './table/data-table/data-table.component';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/book/1', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     component: DataTableComponent},
   { path: 'auth', component: AuthComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'chart', component: ChartComponent},
   { path: '**', component: ErrorPageComponent },
   
   

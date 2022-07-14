@@ -13,6 +13,10 @@ import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthService } from './auth.service';
+import { ChartService } from './chart.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
@@ -22,7 +26,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ContentComponent,
     ErrorPageComponent,
     AuthComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +37,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TableModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
