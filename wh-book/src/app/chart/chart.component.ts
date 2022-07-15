@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from '../chart.service';
 import { Chart, registerables } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { map } from 'rxjs';
 
 interface IData {
@@ -26,6 +27,7 @@ export class ChartComponent implements OnInit {
 
   constructor(private service: ChartService) {
     Chart.register(...registerables);
+    Chart.register(ChartDataLabels);
   }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class ChartComponent implements OnInit {
       .pipe(
         map((value: any) => value.data))
       .subscribe({
-        next: (value: any) => this.data = value,
+        next: (value: any) => this.data = value.reverse(),
         error: (err) => console.log(err),
         complete: () => this.paint()
       });
@@ -50,6 +52,11 @@ export class ChartComponent implements OnInit {
             parsing: {
               yAxisKey: 'qty_shk'
             },
+            datalabels: {
+              formatter: function (value) {
+                return value.qty_shk
+              }
+            }
           },
           {
             label: 'Этап 1',
@@ -57,6 +64,11 @@ export class ChartComponent implements OnInit {
             borderColor: '#6B8E23',
             parsing: {
               yAxisKey: 'qty_shk_cat1'
+            },
+            datalabels: {
+              formatter: function (value) {
+                return value.qty_shk_cat1
+              }
             }
           },
           {
@@ -65,6 +77,11 @@ export class ChartComponent implements OnInit {
             borderColor: 'green',
             parsing: {
               yAxisKey: 'qty_shk_cat2'
+            },
+            datalabels: {
+              formatter: function (value) {
+                return value.qty_shk_cat2
+              }
             }
           },
           {
@@ -73,6 +90,11 @@ export class ChartComponent implements OnInit {
             borderColor: 'blue',
             parsing: {
               yAxisKey: 'qty_shk_cat3'
+            },
+            datalabels: {
+              formatter: function (value) {
+                return value.qty_shk_cat3
+              }
             }
           },
           {
@@ -81,6 +103,11 @@ export class ChartComponent implements OnInit {
             borderColor: 'purple',
             parsing: {
               yAxisKey: 'qty_shk_cat4'
+            },
+            datalabels: {
+              formatter: function (value) {
+                return value.qty_shk_cat4
+              }
             }
           },
         ]
@@ -93,8 +120,17 @@ export class ChartComponent implements OnInit {
         elements: {
           line: {
             tension: 0.4
-          }
+          },
         },
+        plugins: {
+          datalabels: {
+            color: 'black',
+            align: 'top',
+            font: {
+              size: 14
+            }
+            }
+          }
       },
     });
     let shk1 = 0,
@@ -126,11 +162,20 @@ export class ChartComponent implements OnInit {
             'purple',
           ],
           borderColor: [
-            'white',
+            'white'
           ],
-          hoverOffset: 4,
+          hoverOffset: 4
         }]
       },
+      options: {
+        plugins: {
+          datalabels: {
+            formatter: function (value) {
+              return null
+            }
+          }
+        }
+      }
     });
   }
 }
