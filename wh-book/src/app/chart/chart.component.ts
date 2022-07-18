@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartService } from '../chart.service';
+import { ChartService } from '../../services/chart.service';
 import { Chart, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { map } from 'rxjs';

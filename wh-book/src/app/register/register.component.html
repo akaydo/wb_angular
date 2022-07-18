@@ -1,6 +1,6 @@
 <section class="register">
     <div class="register-wrapper">
-        <form [formGroup]="registerForm" class="register-form" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm" class="register-form" (ngSubmit)="onSignUp(registerForm)">
             <h1>Get Started</h1>
             <p>Already have an Account? <a class="register-form__link" routerLink="/auth">Log in</a></p>
             <div class="register-form__group">

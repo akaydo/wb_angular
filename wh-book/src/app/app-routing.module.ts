@@ -8,20 +8,21 @@ import { DataTableComponent } from './table/data-table/data-table.component';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { ChartComponent } from './chart/chart.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/book/1', pathMatch: 'full' },
   {
     path: 'book',
     children: bookRoutes,
-    component: ContentComponent,
+    component: ContentComponent
   },
   { path: 'table',
     children: tableRoutes,
     component: DataTableComponent},
   { path: 'auth', component: AuthComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'chart', component: ChartComponent},
+  { path: 'chart', component: ChartComponent, canActivate: [AuthGuard]},
   { path: '**', component: ErrorPageComponent },
   
   
