@@ -7,6 +7,7 @@ import { FourthComponent } from './pages/fourth/fourth.component';
 import { FifthComponent } from './pages/fifth/fifth.component';
 import { PaginationComponent } from '../components/pagination/pagination.component';
 import { BookRoutingModule } from './book-routing.module';
+import { AuthService } from '../services/auth.service';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { BookRoutingModule } from './book-routing.module';
     BookRoutingModule],
   exports: [
     PaginationComponent
-  ]
+  ],
+  providers: [AuthService],
 })
 export class BookModule { }
