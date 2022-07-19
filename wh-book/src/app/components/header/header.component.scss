@@ -3,8 +3,30 @@
 	background-color: #FFFFFF;
     margin: 0 auto;
 	border-bottom: 1px solid #D8D8D8;
+	&-content {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 auto;
+		padding: 16px 40px 18px;
+		nav{
+			display: flex;
+			flex-direction: row;
+			cursor: pointer;
+			position: relative;
+			top: 8px;
+			a {
+				padding: 5px 12px;
+				border-radius: 6px;
+				&:hover {
+					background-color: #8F07CF;
+					color: #FFFFFF
+					
+				}
+			}
+			
+		}
+	}
+	
+	
 }
 
-.header-logo {
-	padding: 16px 40px 18px;
-}

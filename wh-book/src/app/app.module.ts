@@ -18,17 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './chart/chart.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AuthGuard } from './auth.guard';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAdqfFKqoGt-WAwRAqxaeIz60o_-tmVu1Q",
-  authDomain: "fir-auth-93a4f.firebaseapp.com",
-  databaseURL: "https://fir-auth-93a4f-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "fir-auth-93a4f",
-  storageBucket: "fir-auth-93a4f.appspot.com",
-  messagingSenderId: "581614269949",
-  appId: "1:581614269949:web:18e34ca6e21f1b4da6d594"
-}
+import { TokenGuard } from './guards/token.guard';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './guards/auth.guard';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -50,10 +43,11 @@ const firebaseConfig = {
     MatFormFieldModule,
     FormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    ToastrModule.forRoot()
   ],
-  providers: [AuthService, ChartService, AuthGuard],
+  providers: [AuthService, ChartService, AuthGuard, TokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

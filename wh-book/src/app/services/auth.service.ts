@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // constructor(private http: HttpClient) { }
-  // getData(url: string){
-  //   return this.http.get(url);
-  // }
   isLoggedIn = false;
 
-  constructor(public firebaseAuth: AngularFireAuth) { }
+  constructor(public firebaseAuth: AngularFireAuth, public router: Router) { }
 
   async signin(email: string, password: string) {
     await this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
-        window.alert('Выполнен вход в учетную запись')
+        this.router.navigate(['book/1']);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -30,7 +27,8 @@ export class AuthService {
       .then(res => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
-        window.alert('Учетная запись успешно зарегистрирована')
+        window.alert('Учетная запись успешно зарегистрирована');
+        this.router.navigate(['auth'])
       })
       .catch((error) => {
         window.alert(error.message);
@@ -38,7 +36,8 @@ export class AuthService {
   }
 
   logout() {
-    this.firebaseAuth.signOut()
-    localStorage.removeItem('user')
+    this.firebaseAuth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigate(['auth'])
   }
 }

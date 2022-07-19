@@ -1,6 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-first',
@@ -8,15 +6,9 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent implements OnInit {
-  @Output() isLogout = new EventEmitter<void>()
-  constructor(public authService: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  logout(){
-    this.authService.logout()
-    this.isLogout.emit()
   }
 
 }
