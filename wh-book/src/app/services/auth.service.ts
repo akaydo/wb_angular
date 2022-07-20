@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {initializeApp} from "firebase/app";
+import { environment } from '../../environments/environment';
+
+const provider = new GoogleAuthProvider();
+const app = initializeApp(environment.firebaseConfig);
+const auth = getAuth(app);
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +40,22 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       })
+  }
+
+  signInWithGoogle() {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential!.accessToken;
+        const user = result.user;
+        this.router.navigate(['book/1'])
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+      });
+
   }
 
   logout() {

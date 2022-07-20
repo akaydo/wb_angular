@@ -1,3 +1,4 @@
+import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { TokenGuard } from './guards/token.guard';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './guards/auth.guard';
-import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [

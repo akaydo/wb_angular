@@ -8,14 +8,22 @@
                 <input class="auth-form__input" formControlName="email" type="email" id="email" required>
                 <mat-error *ngIf="authForm.get('email')?.hasError('required') && authForm.get('email')?.touched"> Email
                     is required </mat-error>
-                <mat-error *ngIf="authForm.get('email')?.hasError('email') && authForm.get('email')?.touched"> Invalid email </mat-error>
+                <mat-error *ngIf="authForm.get('email')?.hasError('email') && authForm.get('email')?.touched"> Invalid
+                    email </mat-error>
             </div>
             <div class="auth-form__group">
                 <label class="auth-form__label" for="password">Password</label>
                 <input class="auth-form__input" formControlName="password" type="password" id="password" required>
-                <mat-error *ngIf="authForm.get('password')?.hasError('required') && authForm.get('password')?.touched"> Password is required</mat-error>
+                <mat-error *ngIf="authForm.get('password')?.hasError('required') && authForm.get('password')?.touched">
+                    Password is required</mat-error>
             </div>
             <button type="submit" [disabled]="!authForm.valid" class="auth-form__button">Sign In</button>
+            <div class="auth__social">
+                <p>Or Sign Up with</p>
+                <button class="auth__social-button" (click)="signInGoogle()">
+                    <img class="social-button__icon" src="../../assets/img/google-logo.png" alt="google" />
+                </button>
+            </div>
         </form>
     </div>
 </section>

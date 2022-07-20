@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class AuthComponent implements OnInit {
   authForm: FormGroup;
   isSignedIn = false
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, public router: Router) {
     this.createForm();
   }
 
@@ -40,6 +41,10 @@ export class AuthComponent implements OnInit {
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]]
     });
+  }
+
+  signInGoogle() {
+    this.authService.signInWithGoogle()
   }
 
   // onSubmit() {

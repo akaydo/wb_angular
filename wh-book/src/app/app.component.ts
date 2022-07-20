@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getAuth} from "firebase/auth"
 
 @Component({
   selector: 'app-root',

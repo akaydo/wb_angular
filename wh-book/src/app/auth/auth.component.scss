@@ -18,6 +18,7 @@
         justify-content: flex-start;
         padding: 62px;
         background-size: cover;
+        
     }
     &-form {
       position: relative;
@@ -38,6 +39,7 @@
         display: flex;
         flex-direction: column;
         border-bottom: 3px solid #F4F4F4;
+        
       }
     } 
     &-form__label {
@@ -89,6 +91,24 @@
             line-height: 78px;
             color: #ffffff;
             text-align: center;
+        }
+        .auth__social {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        .auth__social-button {
+          border: none;
+          background-color: white;
+          border-radius: 20%;
+          padding: 8px;
+          margin: 0 auto;
+          cursor: pointer;
+          .social-button__icon {
+            width: 25px;
+            height: 25px;
+          }
         }
 }
 
