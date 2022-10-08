@@ -9,10 +9,13 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   @Output() isLogout = new EventEmitter<void>()
 
+  // showLogoutBtn: boolean = false;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
+
   logout() {
     this.authService.logout()
     this.isLogout.emit()

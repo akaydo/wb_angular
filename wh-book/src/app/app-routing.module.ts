@@ -15,25 +15,25 @@ const routes: Routes = [
   {
     path: 'book',
     children: bookRoutes,
-    component: ContentComponent
+    component: ContentComponent,
+    // canActivate: [AuthGuard],
+    // data: { accessToken: "2591-1589-6307-7588"}
   },
   {
     path: 'table',
     component: DataTableComponent,
-    canActivate: [TokenGuard, AuthGuard],
-    data: { accessToken: "5525-5681-6140-8266" }
+    // canActivate: [AuthGuard],
+    // data: { accessToken: "5525-5681-6140-8266" }
   },
   {
     path: 'chart',
     component: ChartComponent,
-    canActivate: [TokenGuard],
-    data: { accessToken: "2720-4044-4713-0021" }
+    // canActivate: [AuthGuard],
+    // data: { accessToken: "2720-4044-4713-0021" }
   },
   { path: 'auth', component: AuthComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: ErrorPageComponent },
-
-
 ];
 
 @NgModule({
